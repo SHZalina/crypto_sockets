@@ -1,9 +1,33 @@
+# Основное описание 
+Данный проект представляет собой клиент-серверное приложение с использованием сокетов и протокола слова-вызов. В базе данных для каждого клиента храним параметры RSA. Работа была выполнена в рамках курса	"Информационная безопасность компьютерных сетей" на 4 курсе.
 # Необходимые зависимости
 ```
 pip install customtkinter
 pip install packaging
 pip install psycopg2
 ```
+# Database
+Базу данных необходимо создать отдельно через pgAdmin при помощи кода:
+
+CREATE TABLE Users (
+    id SERIAL PRIMARY KEY,
+    login VARCHAR,
+    password VARCHAR,
+    w VARCHAR,
+    t TIMESTAMP
+);
+ 
+CREATE TABLE RSA (
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER REFERENCES Users(id),
+    p NUMERIC(500, 0),
+    q NUMERIC(500, 0),
+    n NUMERIC(500, 0),
+    phi NUMERIC(500, 0),
+    e NUMERIC(500, 0),
+    d NUMERIC(500, 0)
+);
+
 # Cryptography
 
 ## prime_numbers.py 
@@ -44,4 +68,6 @@ pip install psycopg2
 - show_warning - принимает текст ошибки и выводит это окно с ошибкой
 - show_info - принимает текст и выводит окно с информацией об успешной операции
 - run_app - запускает наш customtkinter
-![img.png](img.png)
+
+# Интерфейс приложения
+![image](https://github.com/SHZalina/crypto_sockets/assets/129702781/220d5954-a3b8-4cc8-afae-afa979945e12)
