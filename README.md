@@ -8,7 +8,7 @@ pip install psycopg2
 ```
 # Database
 Базу данных необходимо создать отдельно через pgAdmin при помощи кода:
-
+```
 CREATE TABLE Users (
     id SERIAL PRIMARY KEY,
     login VARCHAR,
@@ -16,7 +16,8 @@ CREATE TABLE Users (
     w VARCHAR,
     t TIMESTAMP
 );
- 
+```
+```
 CREATE TABLE RSA (
     id SERIAL PRIMARY KEY,
     user_id INTEGER REFERENCES Users(id),
@@ -27,7 +28,7 @@ CREATE TABLE RSA (
     e NUMERIC(500, 0),
     d NUMERIC(500, 0)
 );
-
+```
 # Cryptography
 
 ## prime_numbers.py 
